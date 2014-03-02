@@ -1,0 +1,14 @@
+{
+    "name": "schloessersjung/silex-bootstrap",
+    "description": "A minimal Silex Framework project setup",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Schlösser",
+            "email": "mail@schloessersjung.de"
+        }
+    ],
+    "require": {
+        "silex/silex": "1.2.*@dev"
+    }
+}
