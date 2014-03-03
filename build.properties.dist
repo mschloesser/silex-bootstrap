@@ -1,0 +1,8 @@
+dist.dir = dist
+
+# local PHP test server (at least PHP 5.4)
+php.bin = /usr/bin/php
+server.host = localhost
+server.port = 8000
+
+composer.bin = /usr/local/bin/composer

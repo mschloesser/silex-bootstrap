@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<project name="silex-bootstrap" default="build">
+    <property file="build.properties"/>
+
+    <target name="cleandist" description="Clean up dist dir">
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="dist" depends="cleandist" description="Build deployable project">
+        <mkdir dir="${dist.dir}"/>
+        <copy todir="${dist.dir}/src">
+            <fileset dir="src"/>
+        </copy>
+        <copy todir="${dist.dir}/web">
+            <fileset dir="web"/>
+        </copy>
+        <copy file="composer.json" todir="${dist.dir}"/>
+        <copy file="composer.lock" todir="${dist.dir}"/>
+        <exec executable="${composer.bin}">
+            <arg value="install"/>
+            <arg value="--no-dev"/>
+            <arg value="--optimize-autoloader"/>
+            <arg value="-d"/>
+            <arg value="${dist.dir}"/>
+        </exec>
+    </target>
+
+    <target name="server" description="Starts a local development server">
+        <exec executable="${php.bin}" spawn="false">
+            <arg value="-S"/>
+            <arg value="${server.host}:${server.port}"/>
+            <arg value="-t"/>
+            <arg value="web"/>
+        </exec>
+    </target>
+</project>
+
