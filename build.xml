@@ -26,6 +26,9 @@
     </target>
 
     <target name="server" description="Starts a local development server">
+        <echo message="Development server started."/>
+        <echo message="Listening on ${server.host}:${server.port}."/>
+        <echo message="Quit with Ctrl + C"/>
         <exec executable="${php.bin}" spawn="false">
             <arg value="-S"/>
             <arg value="${server.host}:${server.port}"/>
